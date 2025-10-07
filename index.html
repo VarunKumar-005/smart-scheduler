@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn2Earn Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              'inter': ['Inter', 'sans-serif'],
+              'poppins': ['Poppins', 'sans-serif'],
+              'space': ['Space Grotesk', 'sans-serif'],
+              'emoji': ['Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'sans-serif'],
+            },
+            colors: {
+              'apple-blue': '#007AFF',
+              'apple-gray': '#8E8E93',
+              'apple-dark': '#1C1C1E',
+              'apple-light': '#F2F2F7'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .prose h2 {
+          font-size: 1.5rem;
+          margin-top: 1.5rem;
+          margin-bottom: 0.75rem;
+      }
+      .prose h3 {
+          font-size: 1.25rem;
+          margin-top: 1.25rem;
+          margin-bottom: 0.5rem;
+      }
+      .prose strong {
+          font-weight: 600;
+      }
+      .prose ul, .prose ol {
+          padding-left: 1.25rem;
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+      }
+      .prose li {
+          margin-bottom: 0.25rem;
+      }
+      .prose p {
+          margin-bottom: 1rem;
+          line-height: 1.6;
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease-out;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+  }
+}
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-white dark:bg-apple-dark">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

@@ -3,6 +3,7 @@ import { GoogleGenAI, Chat, Type } from "@google/genai";
 import { Certification, StudyPlan, PathwayStep } from "../types";
 import { CERTIFICATION_DATA } from "../constants";
 
+// Google Gemini API Key
 const API_KEY = 'AIzaSyCyGqln0vNpKsL0BUuk2AGq8wzkOs1gSYg';
 
 if (!API_KEY) {

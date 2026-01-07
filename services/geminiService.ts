@@ -3,7 +3,7 @@ import { GoogleGenAI, Chat, Type } from "@google/genai";
 import { Certification, StudyPlan, PathwayStep } from "../types";
 import { CERTIFICATION_DATA } from "../constants";
 
-const API_KEY = 'AIzaSyDPVTWkIvT4LouuxSwVMy1Kf5cKnQIccfc';
+const API_KEY = 'AIzaSyCyGqln0vNpKsL0BUuk2AGq8wzkOs1gSYg';
 
 if (!API_KEY) {
   throw new Error("API_KEY environment variable is not set.");

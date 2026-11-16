@@ -1,7 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Chat } from '@google/genai';
-import { createChatSession } from '../services/geminiService';
+import { sendChatMessage } from '../services/geminiService';
 import { ChatMessage } from '../types';
 import MarkdownRenderer from './MarkdownRenderer';
 
@@ -14,7 +13,6 @@ const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [history, setHistory] = useState<ChatMessage[]>(initialHistory);
   const [isLoading, setIsLoading] = useState(false);
-  const chatSession = useRef<Chat | null>(null);
   const chatMessagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,24 +34,8 @@ const Chatbot: React.FC = () => {
     input.value = '';
 
     try {
-      if (!chatSession.current) {
-        chatSession.current = createChatSession();
-      }
-      const stream = await chatSession.current.sendMessageStream({ message: messageText });
-
-      setIsLoading(false);
-      
-      let buffer = '';
-      setHistory(prev => [...prev, { role: 'model', text: '' }]);
-
-      for await (const chunk of stream) {
-        buffer += chunk.text;
-        setHistory(prev => {
-            const newHistory = [...prev];
-            newHistory[newHistory.length - 1] = { role: 'model', text: buffer };
-            return newHistory;
-        });
-      }
+      const response = await sendChatMessage(history, messageText);
+      setHistory(prev => [...prev, { role: 'model', text: response }]);
     } catch (error) {
       console.error("Chat error:", error);
       setHistory(prev => [...prev, { role: 'model', text: 'Sorry, I encountered an error. Please try again.' }]);

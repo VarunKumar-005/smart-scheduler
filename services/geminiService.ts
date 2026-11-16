@@ -4,7 +4,7 @@ import { Certification, StudyPlan, PathwayStep } from "../types";
 import { CERTIFICATION_DATA } from "../constants";
 
 // Google Gemini API Key
-const API_KEY = 'AIzaSyCyGqln0vNpKsL0BUuk2AGq8wzkOs1gSYg';
+const API_KEY = process.env.GEMINI_API_KEY;
 
 if (!API_KEY) {
   throw new Error("API_KEY environment variable is not set.");
